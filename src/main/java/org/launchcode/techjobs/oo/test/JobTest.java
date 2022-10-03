@@ -38,20 +38,20 @@ public class JobTest {
     @Test
     public void testJobConstructorSetsAllFields() {
 
-        assertTrue(test_job instanceof Job);
-        assertEquals(test_job.getName(), "Product tester");
+        assertTrue(test_job.getName() instanceof String);
+        assertEquals("Product tester", test_job.getName());
 
         assertTrue(test_job.getEmployer() instanceof Employer);
-        assertEquals(test_job.getEmployer().getValue(), "ACME");
+        assertEquals("ACME", test_job.getEmployer().getValue());
 
         assertTrue(test_job.getLocation() instanceof Location);
-        assertEquals(test_job.getLocation().getValue(), "Desert");
+        assertEquals("Desert", test_job.getLocation().getValue());
 
         assertTrue(test_job.getPositionType() instanceof PositionType);
-        assertEquals(test_job.getPositionType().getValue(), "Quality control");
+        assertEquals("Quality control", test_job.getPositionType().getValue());
 
         assertTrue(test_job.getCoreCompetency() instanceof CoreCompetency);
-        assertEquals(test_job.getCoreCompetency().getValue(), "Persistence");
+        assertEquals("Persistence", test_job.getCoreCompetency().getValue());
 
     }
 
@@ -68,8 +68,8 @@ public class JobTest {
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         String strTest_job = test_job.toString();
-        assertEquals(strTest_job.charAt(0), '\n');
-        assertEquals(strTest_job.charAt(strTest_job.length() - 1), '\n');
+        assertEquals('\n', strTest_job.charAt(0));
+        assertEquals('\n', strTest_job.charAt(strTest_job.length() - 1));
     }
 
     @Test
@@ -88,21 +88,25 @@ public class JobTest {
         assertThat(test_string, CoreMatchers.containsString("Core Competency:"));
 
         //this tests the data is correct (5 data strings)
-        assertThat(test_string, CoreMatchers.containsString("Product tester:"));
-        assertThat(test_string, CoreMatchers.containsString("ACME:"));
-        assertThat(test_string, CoreMatchers.containsString("Desert:"));
-        assertThat(test_string, CoreMatchers.containsString("Quality control:"));
-        assertThat(test_string, CoreMatchers.containsString("Persistence:"));
+        assertThat(test_string, CoreMatchers.containsString("Product tester"));
+        assertThat(test_string, CoreMatchers.containsString("ACME"));
+        assertThat(test_string, CoreMatchers.containsString("Desert"));
+        assertThat(test_string, CoreMatchers.containsString("Quality control"));
+        assertThat(test_string, CoreMatchers.containsString("Persistence"));
+
+//        assertEquals("\nID: " + test_job.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n\n", test_job.toString());
 
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
-        Job test_job3 = new Job();
 
-        String test_str = test_job3.toString();
+        Job test_job4 = new Job("", new Employer(""),
+                new Location("Desert"), new PositionType(""),
+                new CoreCompetency("Persistence"));
 
-        System.out.println(test_str);
+        assertEquals("\nID: " + test_job4.getId() + "\nName: Data not available\nEmployer: Data not available\nLocation: Desert\nPosition Type: Data not available\nCore Competency: Persistence\n\n", test_job4.toString());
+
     }
 
 }

@@ -2,11 +2,11 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
-public class Location {
-
-    private int id;
-    private static int nextId = 1;
-    private String value;
+public class Location extends JobField {
+    //moved to JobField class
+//    private int id;
+//    private static int nextId = 1;
+//    private String value;
 
     public Location() {
         id = nextId;
@@ -16,16 +16,15 @@ public class Location {
     // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
     public Location(String value) {
-        this();
-        this.value = value;
+        super(value);
     }
 
     // Custom toString, equals, and hashCode methods:
-
-    @Override
-    public String toString() {
-        return value;
-    }
+    //moved to JobField class
+//    @Override
+//    public String toString() {
+//        return value;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -35,23 +34,27 @@ public class Location {
         return getId() == location.getId();
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
+    //moved to JobField class
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getId());
+//    }
+//
     // Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public String getValue() {
+//        if (value == null || value == "") {
+//            return ("Data not available");
+//        }
+//        return value;
+//    }
+//
+//    public void setValue(String value) {
+//        this.value = value;
+//    }
 
 }

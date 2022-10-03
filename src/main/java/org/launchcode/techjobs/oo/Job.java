@@ -21,9 +21,7 @@ public class Job {
         id = nextId;
         nextId++;
     }
-    public Job(int id) {
-        this.id = id;
-    }
+    public Job(int id) {this.id = id;}
 
     public Job(String name, Employer employer, Location location,
                PositionType positionType, CoreCompetency coreCompetency) {
@@ -37,14 +35,13 @@ public class Job {
 
     @Override
     public String toString() {
-
         return '\n' +
-                "ID: " + id + '\n' +
-                "Name: " + name + '\n' +
-                "Employer: " + employer + '\n' +
-                "Location: " + location + '\n' +
-                "Position Type: " + positionType + '\n' +
-                "Core Competency: " + coreCompetency + '\n' +
+                "ID: " + getId() + '\n' +
+                "Name: " + getName() + '\n' +
+                "Employer: " + employer.getValue() + '\n' +
+                "Location: " + location.getValue() + '\n' +
+                "Position Type: " + positionType.getValue() + '\n' +
+                "Core Competency: " + coreCompetency.getValue() + '\n' +
                 '\n';
     }
 
@@ -75,6 +72,9 @@ public class Job {
     }
 
     public String getName() {
+        if (name == null || name == "") {
+            return "Data not available";
+        }
         return name;
     }
 
