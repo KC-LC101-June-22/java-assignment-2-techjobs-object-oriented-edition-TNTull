@@ -21,7 +21,6 @@ public class Job {
         id = nextId;
         nextId++;
     }
-    public Job(int id) {this.id = id;}
 
     public Job(String name, Employer employer, Location location,
                PositionType positionType, CoreCompetency coreCompetency) {
@@ -41,8 +40,7 @@ public class Job {
                 "Employer: " + employer.getValue() + '\n' +
                 "Location: " + location.getValue() + '\n' +
                 "Position Type: " + positionType.getValue() + '\n' +
-                "Core Competency: " + coreCompetency.getValue() + '\n' +
-                '\n';
+                "Core Competency: " + coreCompetency.getValue() + '\n';
     }
 
 

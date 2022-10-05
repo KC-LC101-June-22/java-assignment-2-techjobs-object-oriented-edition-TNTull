@@ -8,36 +8,38 @@ public abstract class JobField {
     protected static int nextId = 1;
     protected String value;
 
-    public JobField() {
-        this.id = nextId;
-        nextId++;
-    }
-
-    public JobField(String value) {
-        this.value = value;
-    }
+//    public JobField() {
+//        this.id = nextId;
+//        nextId++;
+//    }
+//
+//    public JobField(String value) {
+//        this.value = value;
+//    }
 
     @Override
     public String toString() {
         return value;
     }
-    public int getId() {
-        return id;
-    }
 
-    public String getValue() {
-        if (value == null || value == "") {
-            return ("Data not available");
-        }
-        return value;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public String getValue() {
+//        if (value == null || value == "") {
+//            return ("Data not available");
+//        }
+//        return value;
+//    }
+//
+//    public void setValue(String value) {
+//        this.value = value;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(getId());
+//    }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
 }

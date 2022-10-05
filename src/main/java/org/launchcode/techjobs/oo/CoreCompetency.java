@@ -14,7 +14,8 @@ public class CoreCompetency extends JobField {
     }
 
     public CoreCompetency(String value) {
-        super(value);
+        this();
+        this.value = value;
     }
 
     // Custom toString, equals, and hashCode methods:
@@ -31,30 +32,29 @@ public class CoreCompetency extends JobField {
         CoreCompetency that = (CoreCompetency) o;
         return id == that.id;
     }
-    //moved to JobField class
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     // TODO: Use the "Generate" tool to add a getter and setter for the 'value' field but
     //  ONLY a getter for the 'id' field.
 
     // Getters and Setters:
-    //moved to JobField class
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getValue() {
-//        if (value == null || value == "") {
-//            return ("Data not available");
-//        }
-//        return value;
-//    }
-//
-//    public void setValue(String value) {
-//        this.value = value;
-//    }
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        if (value == null || value == "") {
+            return ("Data not available");
+        }
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

@@ -16,7 +16,8 @@ public class Location extends JobField {
     // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
     //  constructor should also call the empty constructor in order to initialize the 'id' field.
     public Location(String value) {
-        super(value);
+        this();
+        this.value = value;
     }
 
     // Custom toString, equals, and hashCode methods:
@@ -34,27 +35,26 @@ public class Location extends JobField {
         return getId() == location.getId();
     }
 
-    //moved to JobField class
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getId());
-//    }
-//
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
     // Getters and Setters:
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getValue() {
-//        if (value == null || value == "") {
-//            return ("Data not available");
-//        }
-//        return value;
-//    }
-//
-//    public void setValue(String value) {
-//        this.value = value;
-//    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        if (value == null || value == "") {
+            return ("Data not available");
+        }
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

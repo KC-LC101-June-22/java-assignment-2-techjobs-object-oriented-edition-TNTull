@@ -14,7 +14,8 @@ public class PositionType extends JobField {
     }
 
     public PositionType(String value) {
-        super(value);
+        this();
+        this.value = value;
     }
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
@@ -34,27 +35,27 @@ public class PositionType extends JobField {
         PositionType that = (PositionType) o;
         return id == that.id;
     }
-    //moved to JobField class
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id);
-//    }
-//
-    // Getters and Setters:
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getValue() {
-//        if (value == null || value == "") {
-//            return ("Data not available");
-//        }
-//        return value;
-//    }
-//
-//    public void setValue(String value) {
-//        this.value = value;
-//    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+     //Getters and Setters:
+
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        if (value == null || value == "") {
+            return ("Data not available");
+        }
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

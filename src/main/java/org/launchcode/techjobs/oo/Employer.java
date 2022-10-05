@@ -14,7 +14,8 @@ public class Employer extends JobField {
     }
 
     public Employer(String value) {
-        super(value);
+        this();
+        this.value = value;
     }
 
     // Custom toString, equals, and hashCode methods:
@@ -31,27 +32,27 @@ public class Employer extends JobField {
         Employer employer = (Employer) o;
         return getId() == employer.getId();
     }
-    //moved to JobField class
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(getId());
-//    }
-//
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
+    }
+
     // Getters and Setters:
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public String getValue() {
-//        if (value == null || value == "") {
-//            return ("Data not available");
-//        }
-//        return value;
-//    }
-//
-//    public void setValue(String value) {
-//        this.value = value;
-//    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        if (value == null || value == "") {
+            return ("Data not available");
+        }
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
 }

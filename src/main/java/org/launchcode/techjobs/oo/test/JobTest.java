@@ -7,8 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.launchcode.techjobs.oo.*;
 
-import java.util.stream.Stream;
-
 import static org.junit.Assert.*;
 
 /**
@@ -16,8 +14,6 @@ import static org.junit.Assert.*;
  */
 @RunWith(JUnit4.class)
 public class JobTest {
-
-    Job test_job;
 
     @Test
     public void testSettingJobId() {
@@ -27,16 +23,12 @@ public class JobTest {
         assertNotEquals(job1, job2);
     }
 
-    @Before
-    public void createJobObject() {
-    test_job = new Job("Product tester", new Employer("ACME"),
-            new Location("Desert"), new PositionType("Quality control"),
-            new CoreCompetency("Persistence"));
-    }
-
     // tests constructor is assigning class and value correctly
     @Test
     public void testJobConstructorSetsAllFields() {
+        Job test_job = new Job("Product tester", new Employer("ACME"),
+                new Location("Desert"), new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
 
         assertTrue(test_job.getName() instanceof String);
         assertEquals("Product tester", test_job.getName());
@@ -58,7 +50,10 @@ public class JobTest {
     //tests if 2 jobs are same is ID same
     @Test
     public void testJobsForEquality() {
-          Job test_job2 = new Job("Product tester", new Employer("ACME"),
+        Job test_job = new Job("Product tester", new Employer("ACME"),
+                new Location("Desert"), new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
+        Job test_job2 = new Job("Product tester", new Employer("ACME"),
                 new Location("Desert"), new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
 
@@ -67,6 +62,9 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
+        Job test_job = new Job("Product tester", new Employer("ACME"),
+                new Location("Desert"), new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
         String strTest_job = test_job.toString();
         assertEquals('\n', strTest_job.charAt(0));
         assertEquals('\n', strTest_job.charAt(strTest_job.length() - 1));
@@ -74,38 +72,40 @@ public class JobTest {
 
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
+        Job test_job = new Job("Product tester", new Employer("ACME"),
+                new Location("Desert"), new PositionType("Quality control"),
+                new CoreCompetency("Persistence"));
         //System.out.println(test_job.toString());
 
-        String test_string = test_job.toString();
-       //System.out.println(test_string);
+//        String test_string = test_job.toString();
+//       //System.out.println(test_string);
+//
+//        //this tests the labels are correct (6 labels)
+//        assertThat(test_string, CoreMatchers.containsString("ID:"));
+//        assertThat(test_string, CoreMatchers.containsString("Name:"));
+//        assertThat(test_string, CoreMatchers.containsString("Employer:"));
+//        assertThat(test_string, CoreMatchers.containsString("Location:"));
+//        assertThat(test_string, CoreMatchers.containsString("Position Type:"));
+//        assertThat(test_string, CoreMatchers.containsString("Core Competency:"));
+//
+//        //this tests the data is correct (5 data strings)
+//        assertThat(test_string, CoreMatchers.containsString("Product tester"));
+//        assertThat(test_string, CoreMatchers.containsString("ACME"));
+//        assertThat(test_string, CoreMatchers.containsString("Desert"));
+//        assertThat(test_string, CoreMatchers.containsString("Quality control"));
+//        assertThat(test_string, CoreMatchers.containsString("Persistence"));
 
-        //this tests the labels are correct (6 labels)
-        assertThat(test_string, CoreMatchers.containsString("ID:"));
-        assertThat(test_string, CoreMatchers.containsString("Name:"));
-        assertThat(test_string, CoreMatchers.containsString("Employer:"));
-        assertThat(test_string, CoreMatchers.containsString("Location:"));
-        assertThat(test_string, CoreMatchers.containsString("Position Type:"));
-        assertThat(test_string, CoreMatchers.containsString("Core Competency:"));
-
-        //this tests the data is correct (5 data strings)
-        assertThat(test_string, CoreMatchers.containsString("Product tester"));
-        assertThat(test_string, CoreMatchers.containsString("ACME"));
-        assertThat(test_string, CoreMatchers.containsString("Desert"));
-        assertThat(test_string, CoreMatchers.containsString("Quality control"));
-        assertThat(test_string, CoreMatchers.containsString("Persistence"));
-
-//        assertEquals("\nID: " + test_job.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n\n", test_job.toString());
+        assertEquals("\nID: " + test_job.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n", test_job.toString());
 
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
-
         Job test_job4 = new Job("", new Employer(""),
                 new Location("Desert"), new PositionType(""),
                 new CoreCompetency("Persistence"));
 
-        assertEquals("\nID: " + test_job4.getId() + "\nName: Data not available\nEmployer: Data not available\nLocation: Desert\nPosition Type: Data not available\nCore Competency: Persistence\n\n", test_job4.toString());
+        assertEquals("\nID: " + test_job4.getId() + "\nName: Data not available\nEmployer: Data not available\nLocation: Desert\nPosition Type: Data not available\nCore Competency: Persistence\n", test_job4.toString());
 
     }
 
