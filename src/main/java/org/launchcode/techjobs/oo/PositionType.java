@@ -1,12 +1,17 @@
+//Teresa Tull worked on this on 9-26-2022 java auto-graded Assignment 2
+
 package org.launchcode.techjobs.oo;
 
-public class PositionType {
+import java.util.Objects;
 
-    private int id;
-    private static int nextId = 1;
-    private String value;
+public class PositionType extends JobField {
+    //moved to JobField class
+//    private int id;
+//    private static int nextId = 1;
+//    private String value;
 
     public PositionType() {
+        super();
         id = nextId;
         nextId++;
     }
@@ -17,19 +22,40 @@ public class PositionType {
     }
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
+    //moved to JobField class
+//    @Override
+//    public String toString() {
+//        return value;
+//    }
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
 
-    // Getters and Setters:
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        PositionType that = (PositionType) o;
+//        return id == that.id;
+//    }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    }
+//
+//     //Getters and Setters:
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public String getValue() {
+//        if (value == null || value == "") {
+//            return ("Data not available");
+//        }
+//        return value;
+//    }
 
     public void setValue(String value) {
         this.value = value;
