@@ -1,3 +1,5 @@
+//Teresa Tull worked on this on 9-26-2022 java auto-graded Assignment 2
+
 package org.launchcode.techjobs.oo;
 
 import java.util.Objects;

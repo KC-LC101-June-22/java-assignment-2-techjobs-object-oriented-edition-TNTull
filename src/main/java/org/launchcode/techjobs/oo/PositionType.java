@@ -1,3 +1,5 @@
+//Teresa Tull worked on this on 9-26-2022 java auto-graded Assignment 2
+
 package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
@@ -9,6 +11,7 @@ public class PositionType extends JobField {
 //    private String value;
 
     public PositionType() {
+        super();
         id = nextId;
         nextId++;
     }
@@ -28,31 +31,31 @@ public class PositionType extends JobField {
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PositionType that = (PositionType) o;
-        return id == that.id;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        PositionType that = (PositionType) o;
+//        return id == that.id;
+//    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-     //Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        if (value == null || value == "") {
-            return ("Data not available");
-        }
-        return value;
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    }
+//
+//     //Getters and Setters:
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public String getValue() {
+//        if (value == null || value == "") {
+//            return ("Data not available");
+//        }
+//        return value;
+//    }
 
     public void setValue(String value) {
         this.value = value;
